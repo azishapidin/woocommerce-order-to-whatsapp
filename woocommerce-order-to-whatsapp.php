@@ -80,3 +80,13 @@ function run_woocommerce_order_to_whatsapp() {
 
 }
 run_woocommerce_order_to_whatsapp();
+
+add_action('admin_menu', 'woocommerce_order_to_whatsapp_admin');
+
+function woocommerce_order_to_whatsapp_admin(){
+    add_menu_page( 'WooCommerce Order to WhatsApp', 'WooCommerce WhatsApp', 'manage_options', 'woocommerce-order-whatsapp', 'wooWaOrderAdmin' );
+}
+ 
+function wooWaOrderAdmin(){
+    require 'admin/partials/woocommerce-order-to-whatsapp-admin-display.php';
+}
