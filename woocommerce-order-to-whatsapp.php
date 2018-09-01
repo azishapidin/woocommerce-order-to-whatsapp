@@ -81,10 +81,14 @@ function run_woocommerce_order_to_whatsapp() {
 }
 run_woocommerce_order_to_whatsapp();
 
+
+/**
+ * Add submenu setting to WooCommerce.
+ */
 add_action('admin_menu', 'woocommerce_order_to_whatsapp_admin');
 
 function woocommerce_order_to_whatsapp_admin(){
-    add_menu_page( 'WooCommerce Order to WhatsApp', 'WooCommerce WhatsApp', 'manage_options', 'woocommerce-order-whatsapp', 'wooWaOrderAdmin' );
+    add_submenu_page( 'woocommerce', 'WooCommerce Order to WhatsApp', 'Order to WhatsApp', 'manage_options', 'woocommerce-order-whatsapp', 'wooWaOrderAdmin' );
 }
  
 function wooWaOrderAdmin(){
