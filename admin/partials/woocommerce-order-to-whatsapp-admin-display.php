@@ -14,7 +14,6 @@
 ?>
 
 <?php
-$default = 'Hello, I want to buy this product {{link}}';
 if (count($_POST) > 0) {
     if (isset($_POST['woo_wa_phone_number'])) {
         if (!get_option('woo_wa_phone_number') || strlen(get_option('woo_wa_phone_number')) == 0) {
@@ -37,13 +36,6 @@ if (count($_POST) > 0) {
             update_option( 'woo_wa_button', $_POST['woo_wa_button'] );
         }
     }
-} else {
-    if (!get_option('woo_wa_content')) {
-        add_option( 'woo_wa_content', $default );
-    }
-}
-if (!get_option('woo_wa_button')) {
-    add_option( 'woo_wa_button', 'Order via WhatsApp' );
 }
 ?>
 
