@@ -109,12 +109,13 @@ function CallWAButton()
 	$data['link'] = get_permalink($product->get_id());
 	$phoneNumber = esc_attr( get_option('woo_wa_phone_number') );
 	$content = esc_attr( get_option('woo_wa_content') );
+	$button = esc_attr( get_option('woo_wa_button') );
 	foreach ($data as $key => $value) {
 		$content = str_replace('{{' . $key . '}}', $value, $content);
 	}
 
 	?>
-	<button id="chat-wa" type="button" onclick="openWA()">Chat via WA</button>
+	<button id="chat-wa" type="button" onclick="openWA()"><?php echo $button ?></button>
 	<script>
 	function openWA(){
 		var t = "<?php echo $phoneNumber ?>",

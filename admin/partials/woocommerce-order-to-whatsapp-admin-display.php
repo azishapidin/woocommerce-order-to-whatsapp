@@ -30,10 +30,20 @@ if (count($_POST) > 0) {
             update_option( 'woo_wa_content', $_POST['woo_wa_content'] );
         }
     }
+    if (isset($_POST['woo_wa_button'])) {
+        if (!get_option('woo_wa_button') || strlen(get_option('woo_wa_button')) == 0) {
+            add_option( 'woo_wa_button', $_POST['woo_wa_button'] );
+        } else {
+            update_option( 'woo_wa_button', $_POST['woo_wa_button'] );
+        }
+    }
 } else {
     if (!get_option('woo_wa_content')) {
         add_option( 'woo_wa_content', $default );
     }
+}
+if (!get_option('woo_wa_button')) {
+    add_option( 'woo_wa_button', 'Order via WhatsApp' );
 }
 ?>
 
@@ -46,6 +56,11 @@ if (count($_POST) > 0) {
             <tr valign="top">
             <th scope="row">WhatsApp Phone Number</th>
             <td><input style="width: 300px;" type="text" name="woo_wa_phone_number" value="<?php echo esc_attr( get_option('woo_wa_phone_number') ); ?>" /></td>
+            </tr>
+
+            <tr valign="top">
+            <th scope="row">Button Text</th>
+            <td><input style="width: 300px;" type="text" name="woo_wa_button" value="<?php echo esc_attr( get_option('woo_wa_button') ); ?>" /></td>
             </tr>
             
             <tr valign="top">
