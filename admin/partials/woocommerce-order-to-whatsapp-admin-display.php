@@ -37,12 +37,18 @@ if (count($_POST) > 0) {
             update_option( 'woo_wa_button', $_POST['woo_wa_button'] );
         }
     }
+    $success = true;
 }
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div class="wrap">
     <h1>WooCommerce Order to WhatsApp Setting</h1>
+    <?php if(isset($success) && $success){ ?>
+    <div class="notice notice-success is-dismissible">
+        <p>Changes Saved :)</p>
+    </div>
+    <?php } ?>
     <form action="" method="post">
         <?php settings_fields( 'woocommerce-order-whatsapp' ); do_settings_sections( 'woocommerce-order-whatsapp' ); ?>
         <table class="form-table">
